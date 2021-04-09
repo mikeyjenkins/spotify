@@ -29,7 +29,7 @@ const Dashboard = () => {
   };
 
   return (
-    <>
+    <div className="dashboard-page">
       <Search handleSearch={handleSearch} />
       {data && tracks && albums && artists && playlists && (
         <SearchContent
@@ -39,7 +39,7 @@ const Dashboard = () => {
           tracks={tracks}
         />
       )}
-    </>
+    </div>
   );
 };
 export default Dashboard;

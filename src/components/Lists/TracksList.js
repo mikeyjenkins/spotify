@@ -1,27 +1,27 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import _ from 'lodash';
-//import music from '../images/image.jpg';
-const AlbumsList = ({ albums }) => {
+
+const TracksList = ({ tracks }) => {
   return (
     <React.Fragment>
-      <h3>Albums</h3>
-      {Object.keys(albums).length > 0 && (
+      <h4>Tracks</h4>
+      {Object.keys(tracks).length > 0 && (
         <div className="albums">
-          {albums.items.slice(0,5).map((album, index) => {
+          {tracks.items.slice(0,5).map((track, index) => {
             return (
               <React.Fragment key={index}>
                 <Card>
                   <a
                     target="_blank"
-                    href={album.external_urls.spotify}
+                    href={track.external_urls.spotify}
                     rel="noopener noreferrer"
                     className="card-image-link"
                   >
-                    {!_.isEmpty(album.images) ? (
+                    {!_.isEmpty(track.album.images) ? (
                       <Card.Img
                         variant="top"
-                        src={album.images[0].url}
+                        src={track.album.images[0].url}
                         alt=""
                       />
                     ) : (
@@ -29,10 +29,10 @@ const AlbumsList = ({ albums }) => {
                     )}
                   </a>
                   <Card.Body>
-                    <Card.Title className="truncate">{album.name}</Card.Title>
-                    <Card.Text>
-                      <small className="truncate">
-                        {album.artists.map((artist) => artist.name).join(', ')}
+                    <Card.Title className="truncate">{track.name}</Card.Title>
+                    <Card.Text className="truncate">
+                      <small>
+                        {track.artists.map((artist) => artist.name).join(', ')}
                       </small>
                     </Card.Text>
                   </Card.Body>
@@ -45,4 +45,4 @@ const AlbumsList = ({ albums }) => {
     </React.Fragment>
   );
 };
-export default AlbumsList;
+export default TracksList;

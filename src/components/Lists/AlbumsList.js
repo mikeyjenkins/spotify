@@ -1,14 +1,14 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import _ from 'lodash';
-
-const TracksList = ({ tracks }) => {
+//import music from '../images/image.jpg';
+const AlbumsList = ({ albums }) => {
   return (
     <React.Fragment>
-      <h3>Tracks</h3>
+      <h4>Albums</h4>
       {Object.keys(albums).length > 0 && (
         <div className="albums">
-          {tracks.items.slice(0,5).map((album, index) => {
+          {albums.items.slice(0,5).map((album, index) => {
             return (
               <React.Fragment key={index}>
                 <Card>
@@ -30,8 +30,8 @@ const TracksList = ({ tracks }) => {
                   </a>
                   <Card.Body>
                     <Card.Title className="truncate">{album.name}</Card.Title>
-                    <Card.Text>
-                      <small className="truncate">
+                    <Card.Text className="truncate">
+                      <small>
                         {album.artists.map((artist) => artist.name).join(', ')}
                       </small>
                     </Card.Text>
@@ -45,4 +45,4 @@ const TracksList = ({ tracks }) => {
     </React.Fragment>
   );
 };
-export default TracksList;
+export default AlbumsList;

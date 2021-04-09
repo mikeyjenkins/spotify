@@ -1,21 +1,58 @@
+.body{
+    background-color: rgb(238, 238, 238);
+}
+
 .card{
     width: 10rem;
     display: inline-block;
     height: 15rem;
     margin: 10px;
     overflow: hidden;
+    background-color: rgb(225, 225, 225);
+    color:rgb(0, 0, 0);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     
     .card-title{
         margin: 0px;
         font-size: 15px;
     }
 
+    .card-img-top{
+        height: 70%;
+    }
+
+    .card-body{
+        padding:5px
+    }
+
     .truncate {
-        width: 7rem;
+        width: 9rem;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
       }
 }
 
+.search-bar{
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+}
 
+.search-button{
+background-color:#1DB954;
+border-width: 0px;
+}
+
+.search-button:hover {
+    background-color: #006f27;
+    
+}
+
+.dashboard-page {
+    .container{
+        padding-bottom: 100px;
+    }
+}
