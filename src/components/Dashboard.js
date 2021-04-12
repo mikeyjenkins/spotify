@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as api from "../utils/api";
 import Search from "./Search";
 import SearchContent from "./SearchContent";
+import { useHistory } from "react-router-dom";
 
 const Dashboard = () => {
   const [data, setData] = useState();
@@ -9,6 +10,7 @@ const Dashboard = () => {
   const [albums, setAlbums] = useState();
   const [artists, setArtists] = useState();
   const [playlists, setPlaylists] = useState();
+  let history = useHistory()
 
   const populateData = (data) => {
     setData(data);
@@ -37,6 +39,7 @@ const Dashboard = () => {
           albums={albums}
           playlists={playlists}
           tracks={tracks}
+          history={history}
         />
       )}
     </div>

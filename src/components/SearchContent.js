@@ -8,12 +8,12 @@ import PlayLists from "./Lists/PlayLists"
 const SearchContent = ({ albums, artists, playlists, tracks }) => {
   return (
     <React.Fragment>
-      <Container>
+      <div className='content-container'>
         {tracks && <TracksList tracks={tracks} />}
         {artists && <ArtistsList artists={artists} />}
         {albums && <AlbumsList albums={albums} />}
         {playlists && <PlayLists playlists={playlists} />}
-      </Container>
+      </div>
     </React.Fragment>
   );
 };

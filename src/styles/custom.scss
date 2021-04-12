@@ -2,6 +2,34 @@
     background-color: rgb(238, 238, 238);
 }
 
+.login{
+  background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1a0e9ad0-6f62-42b6-9856-779871556b04/d4ariv0-b241cf9b-847b-4bb0-ba99-35e32ecc682d.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMWEwZTlhZDAtNmY2Mi00MmI2LTk4NTYtNzc5ODcxNTU2YjA0XC9kNGFyaXYwLWIyNDFjZjliLTg0N2ItNGJiMC1iYTk5LTM1ZTMyZWNjNjgyZC5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.Ekt3IU2LKI-xxi1s3_yPHAmML0aO7zaobX6UKbSgsMs");
+  background-size: cover;
+  background-position: bottom left 0;
+  min-height: 100vh;
+}
+
+.main-title {
+    text-align: center;
+    margin-top:200px;
+    padding-top:60px;
+    padding-bottom: 60px;
+    position: absolute;
+    width: 100%;
+    background-color: rgb(225, 225, 225);
+    color:rgb(0, 0, 0);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.main-button{
+    background-color: #1DB954;
+    border: none;
+}
+
+.main-button:hover{
+    background-color:#006f27 ;
+}
+
 .card{
     width: 10rem;
     display: inline-block;
@@ -24,6 +52,12 @@
     .card-body{
         padding:5px
     }
+    .missing_icn{
+        opacity: 0.2;
+        filter: alpha(opacity=40); /* msie */
+        background-color: rgb(103, 103, 103);
+    }
+
 
     .truncate {
         width: 9rem;
@@ -32,6 +66,7 @@
         text-overflow: ellipsis;
       }
 }
+
 
 .search-bar{
     margin-right: auto;
@@ -44,6 +79,7 @@
 .search-button{
 background-color:#1DB954;
 border-width: 0px;
+border:none;
 }
 
 .search-button:hover {
@@ -52,7 +88,69 @@ border-width: 0px;
 }
 
 .dashboard-page {
-    .container{
+    .content-container{
         padding-bottom: 100px;
+        margin-left: 10%;
+        margin-right: 10%;
     }
 }
+
+.see-all-link{
+    margin-left: 8px;
+    margin-top: 4px;
+    color: #1DB954;
+}
+.see-all-link:hover{
+    color:#006f27
+}
+
+.category-header{
+    display: flex;
+}
+
+.items-container{
+    display: inline-block;
+}
+
+.next-button-div{
+    display: inline;
+    .next-button{
+        margin-bottom: 8rem;
+        color: #1DB954;
+        font-size: 30px;
+    }
+}
+
+.next-button-div:hover{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.tracks-table{
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+
+    .progress-bar{
+        background-color: #1DB954;
+    }
+
+    tr{
+        height: 50px;
+    }
+    td{
+  
+    }
+}
+
+.library-title{
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+
+
