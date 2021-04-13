@@ -64,7 +64,7 @@ const Player = () => {
 
   const getCurrentTrack = () => {
     api.get(API_PLAYING_URL).then((res) => {
-      setTrack(res);
+      setTrack(res.data);
     });
   };
 

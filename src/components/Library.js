@@ -19,8 +19,8 @@ const Library = (props) => {
 
   const showmore = (url) => {
     api.get(url).then((res) => {
-      res.items = tracks.items.concat(res.items);
-      setTracks(res);
+      res.data.items = tracks.items.concat(res.data.items);
+      setTracks(res.data);
     });
   };
 
@@ -43,14 +43,14 @@ const Library = (props) => {
 
   useEffect(() => {
     api.get(API_SEARCH_URL).then((res) => {
-      populateData(res);
+      populateData(res.data);
     });
   }, [API_SEARCH_URL]);
 
   return (
     <React.Fragment>
       <div className="library-title">
-        <h4>Saved Tracks</h4>
+        <h4>Library</h4>
       </div>
 
       {tracks && (

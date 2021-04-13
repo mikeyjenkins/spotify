@@ -3,8 +3,10 @@ import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import _ from "lodash";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import swal from 'sweetalert';
+
+
 import {
-  faAngleUp,
   faChevronLeft,
   faChevronRight,
   faPlus,
@@ -23,10 +25,17 @@ const TracksList = ({ tracks }) => {
     setLimit([limit[0] - 5, limit[1] - 5]);
   };
 
+
   const addTrack = (trackId) => {
     console.log(trackId);
     api.put(`${ADD_TRACK_URL}${trackId}`).then((res) => {
-      console.log(res);
+      if(res.status === 200){
+        swal({
+          text: "Song added to your library",
+          icon: "success",
+          button: "Close",
+        });
+      }
     });
   };
 

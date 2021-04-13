@@ -26,7 +26,7 @@ const Dashboard = () => {
     )}&type=album,playlist,artist,track`;
 
     api.get(API_SEARCH_URL).then((res) => {
-      populateData(res);
+      populateData(res.data);
     });
   };
 
