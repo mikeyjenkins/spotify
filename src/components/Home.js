@@ -5,7 +5,7 @@ import Header from "./Header";
 const Home = (props) => {
   let scopes = 'user-library-read user-library-modify user-read-currently-playing user-modify-playback-state'
   const handleLogin = () => {
-    window.location = `${process.env.REACT_APP_AUTHORIZE_URL}?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=http://${process.env.REACT_APP_REDIRECT_URL}&response_type=token&show_dialog=true&scope=${encodeURIComponent(scopes)}`;
+    window.location = `${process.env.REACT_APP_AUTHORIZE_URL}?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_REDIRECT_URL}&response_type=token&show_dialog=true&scope=${encodeURIComponent(scopes)}`;
   };
 
   return (
