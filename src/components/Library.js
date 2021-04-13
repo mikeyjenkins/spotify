@@ -3,15 +3,19 @@ import * as api from "../utils/api";
 import { Table, ProgressBar } from "react-bootstrap";
 import _ from "lodash";
 import InfiniteScroll from "react-infinite-scroll-component";
+import {Link} from "react-router-dom"
 
 const Library = (props) => {
-  let allTracks;
   const [tracks, setTracks] = useState();
   const API_SEARCH_URL = `https://api.spotify.com/v1/me/tracks`;
 
   const populateData = (data) => {
     setTracks(data);
   };
+
+  const openTrack = (trackUrl) => {
+    window.open(trackUrl)
+  }
 
   const showmore = (url) => {
     api.get(url).then((res) => {
@@ -29,10 +33,12 @@ const Library = (props) => {
   };
 
   const formatDurationToMinutes = (ms) => {
-    var d = new Date(1000*Math.round(ms/1000)); // round to nearest second
-    function pad(i) { return ('0'+i).slice(-2); }
-    var str = pad(d.getUTCMinutes()) + ':' + pad(d.getUTCSeconds());
-    return str
+    let date = new Date(1000 * Math.round(ms / 1000)); // round to nearest second
+    const pad = (i) => {
+      return ("0" + i).slice(-2);
+    };
+    let str = pad(date.getUTCMinutes()) + ":" + pad(date.getUTCSeconds());
+    return str;
   };
 
   useEffect(() => {
@@ -72,29 +78,31 @@ const Library = (props) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {tracks.items.map((track) => {
+                  {tracks.items.map((track, index) => {
                     return (
-                      <>
-                        <tr>
-                          {!_.isEmpty(track.track.album.images) ? (
-                            <img
-                              variant="top"
-                              src={track.track.album.images[0].url}
-                              alt=""
-                              height="40px"
-                              width="40px"
-                            />
-                          ) : (
-                            <span className="missing_icn">
+                      
+                        <tr key={index} className="table-row" onClick={() => openTrack(track.track.external_urls.spotify)}>
+                          <td className="table-img">
+                            {!_.isEmpty(track.track.album.images) ? (
                               <img
                                 variant="top"
-                                src={
-                                  "https://i.pinimg.com/originals/7a/ec/a5/7aeca525afa2209807c15da821b2f2c6.png"
-                                }
-                                alt="No Image"
+                                src={track.track.album.images[0].url}
+                                alt=""
+                                height="40px"
+                                width="40px"
                               />
-                            </span>
-                          )}
+                            ) : (
+                              <span className="missing_icn">
+                                <img
+                                  variant="top"
+                                  src={
+                                    "https://i.pinimg.com/originals/7a/ec/a5/7aeca525afa2209807c15da821b2f2c6.png"
+                                  }
+                                  alt=""
+                                />
+                              </span>
+                            )}
+                          </td>
                           <td>{track.track.name}</td>
                           <td>
                             {track.track.artists.map((artist) => {
@@ -110,7 +118,6 @@ const Library = (props) => {
                             <ProgressBar now={track.track.popularity} />
                           </td>
                         </tr>
-                      </>
                     );
                   })}
                 </tbody>

@@ -11,9 +11,6 @@ import {
 const PlayLists = ({ playlists }) => {
   const [limit, setLimit] = useState([0, 5]);
 
-  const formatNum = (x) => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  };
   const seeNext = () => {
     setLimit([limit[0] + 5, limit[1] + 5]);
   };

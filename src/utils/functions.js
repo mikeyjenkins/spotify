@@ -21,7 +21,6 @@ export const setAuthHeader = () => {
         'Authorization'
       ] = `Bearer ${params.access_token}`;
     }
-    console.log(params.access_token)
   } catch (error) {
     console.log('Error setting auth', error);
   }

@@ -5,6 +5,8 @@ import RedirectPage from '../components/RedirectPage';
 import Dashboard from '../components/Dashboard';
 import NotFoundPage from '../components/NotFoundPage';
 import Library from '../components/Library'
+import NavBar from '../components/NavBar'
+import Player from '../components/Player'
 
 class AppRouter extends React.Component {
   state = {
@@ -33,11 +35,13 @@ class AppRouter extends React.Component {
     return (
       <BrowserRouter>
         <div className="main">
+          <NavBar />
           <Switch>
             <Route path="/" component={Home} exact={true} />
             <Route path="/redirect" component={RedirectPage} />
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/library" component={Library} />
+            <Route path="/player" component={Player} />
             <Route component={NotFoundPage} />
           </Switch>
         </div>

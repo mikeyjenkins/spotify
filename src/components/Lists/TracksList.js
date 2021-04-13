@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import _ from "lodash";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faAngleUp,
   faChevronLeft,
   faChevronRight,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
+import * as api from "../../utils/api";
 
 const TracksList = ({ tracks }) => {
+  const ADD_TRACK_URL = "https://api.spotify.com/v1/me/tracks?ids=";
   const [limit, setLimit] = useState([0, 5]);
 
   const seeNext = () => {
@@ -17,6 +21,13 @@ const TracksList = ({ tracks }) => {
 
   const seeLast = () => {
     setLimit([limit[0] - 5, limit[1] - 5]);
+  };
+
+  const addTrack = (trackId) => {
+    console.log(trackId);
+    api.put(`${ADD_TRACK_URL}${trackId}`).then((res) => {
+      console.log(res);
+    });
   };
 
   return (
@@ -39,12 +50,8 @@ const TracksList = ({ tracks }) => {
             return (
               <React.Fragment key={index}>
                 <Card>
-                  <a
-                    target="_blank"
-                    href={track.external_urls.spotify}
-                    rel="noopener noreferrer"
-                    className="card-image-link"
-                  >
+                  <FontAwesomeIcon className="add-track-icn" icon={faPlus} onClick={() => addTrack(track.id)} />
+                  
                     {!_.isEmpty(track.album.images) ? (
                       <Card.Img
                         variant="top"
@@ -62,7 +69,13 @@ const TracksList = ({ tracks }) => {
                         />
                       </span>
                     )}
-                  </a>
+                  
+                  <a
+                    target="_blank"
+                    href={track.external_urls.spotify}
+                    rel="noopener noreferrer"
+                    className="card-link"
+                  >
                   <Card.Body>
                     <Card.Title className="truncate">{track.name}</Card.Title>
                     <Card.Text className="truncate">
@@ -71,6 +84,7 @@ const TracksList = ({ tracks }) => {
                       </small>
                     </Card.Text>
                   </Card.Body>
+                  </a>
                 </Card>
               </React.Fragment>
             );

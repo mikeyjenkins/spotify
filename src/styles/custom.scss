@@ -45,6 +45,13 @@
         font-size: 15px;
     }
 
+    .card-link{
+        color: black;
+    }
+    .card-link:hover{
+        color: #1DB954;
+    }
+
     .card-img-top{
         height: 70%;
     }
@@ -64,7 +71,15 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-      }
+    }
+}
+
+.add-track-icn{
+    position:absolute;
+    color: #1DB954;
+    margin: 10px;
+    font-size: 24pt;
+    cursor: pointer;
 }
 
 
@@ -133,6 +148,14 @@ border:none;
     margin-bottom: 100px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
+    .table-img{
+        padding:0px;
+    }
+
+    .table-row{
+        cursor: pointer;
+    }
+
 
     .progress-bar{
         background-color: #1DB954;
@@ -141,15 +164,55 @@ border:none;
     tr{
         height: 50px;
     }
-    td{
-  
-    }
 }
 
 .library-title{
     text-align: center;
     margin-top: 30px;
 }
+
+.current-song-wrapper{
+    text-align: center;
+    margin-top: 5%;
+    
+
+    .current-song-img{
+        height: 400px;
+        width: 400px;
+    }
+
+    .track-control-btns{
+        margin-top: 5px;
+        .next-track-arrow{
+            font-size: 30px;
+            margin-left: 30px;
+            cursor: pointer;
+        }
+    
+        .prev-track-arrow{
+            font-size: 30px;
+            margin-right: 30px;
+            cursor: pointer;
+        }
+        
+        .play-track-icn{
+            font-size: 30px;
+            cursor: pointer;
+        }
+    }
+}
+
+
+.play-first-wrapper{
+    text-align: center;
+    color: #1DB954;
+    margin-top: 20%;
+    .play-first-track{
+        font-size: 200px;
+    }
+
+}
+
 
 
 

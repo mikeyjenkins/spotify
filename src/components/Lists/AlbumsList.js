@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Card, Button } from "react-bootstrap";
+import React, { useState } from 'react';
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import _ from "lodash";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
