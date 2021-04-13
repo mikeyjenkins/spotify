@@ -3,7 +3,7 @@ import * as api from "../utils/api";
 import { Table, ProgressBar } from "react-bootstrap";
 import _ from "lodash";
 import InfiniteScroll from "react-infinite-scroll-component";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const Library = (props) => {
   const [tracks, setTracks] = useState();
@@ -14,8 +14,8 @@ const Library = (props) => {
   };
 
   const openTrack = (trackUrl) => {
-    window.open(trackUrl)
-  }
+    window.open(trackUrl);
+  };
 
   const showmore = (url) => {
     api.get(url).then((res) => {
@@ -80,44 +80,49 @@ const Library = (props) => {
                 <tbody>
                   {tracks.items.map((track, index) => {
                     return (
-                      
-                        <tr key={index} className="table-row" onClick={() => openTrack(track.track.external_urls.spotify)}>
-                          <td className="table-img">
-                            {!_.isEmpty(track.track.album.images) ? (
+                      <tr
+                        key={index}
+                        className="table-row"
+                        onClick={() =>
+                          openTrack(track.track.external_urls.spotify)
+                        }
+                      >
+                        <td className="table-img">
+                          {!_.isEmpty(track.track.album.images) ? (
+                            <img
+                              variant="top"
+                              src={track.track.album.images[0].url}
+                              alt=""
+                              height="40px"
+                              width="40px"
+                            />
+                          ) : (
+                            <span className="missing_icn">
                               <img
                                 variant="top"
-                                src={track.track.album.images[0].url}
+                                src={
+                                  "https://i.pinimg.com/originals/7a/ec/a5/7aeca525afa2209807c15da821b2f2c6.png"
+                                }
                                 alt=""
-                                height="40px"
-                                width="40px"
                               />
-                            ) : (
-                              <span className="missing_icn">
-                                <img
-                                  variant="top"
-                                  src={
-                                    "https://i.pinimg.com/originals/7a/ec/a5/7aeca525afa2209807c15da821b2f2c6.png"
-                                  }
-                                  alt=""
-                                />
-                              </span>
-                            )}
-                          </td>
-                          <td>{track.track.name}</td>
-                          <td>
-                            {track.track.artists.map((artist) => {
-                              if (!isLastArrItem(artist, track.track.artists))
-                                return `${artist.name}, `;
-                              else return `${artist.name}`;
-                            })}
-                          </td>
-                          <td>
-                            {formatDurationToMinutes(track.track.duration_ms)}
-                          </td>
-                          <td>
-                            <ProgressBar now={track.track.popularity} />
-                          </td>
-                        </tr>
+                            </span>
+                          )}
+                        </td>
+                        <td>{track.track.name}</td>
+                        <td>
+                          {track.track.artists.map((artist) => {
+                            if (!isLastArrItem(artist, track.track.artists))
+                              return `${artist.name}, `;
+                            else return `${artist.name}`;
+                          })}
+                        </td>
+                        <td>
+                          {formatDurationToMinutes(track.track.duration_ms)}
+                        </td>
+                        <td>
+                          <ProgressBar now={track.track.popularity} />
+                        </td>
+                      </tr>
                     );
                   })}
                 </tbody>
