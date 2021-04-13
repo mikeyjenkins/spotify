@@ -47,11 +47,11 @@ const Player = () => {
   useEffect(() => {
     api.get(API_PLAYING_URL).then((res) => {
       console.log(res);
-      setTrack(res);
+        setTrack(res);
+      
     });
     renderPlayPauseBtn();
-  }, [API_PLAYING_URL, nextTrack, prevTrack]);
-
+  }, [API_PLAYING_URL]);
   if(track){
     return (
         <>
