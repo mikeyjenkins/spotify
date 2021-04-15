@@ -53,7 +53,7 @@ const RecentlyPlayed = () => {
                     className="card-link"
                   >
                     <Card.Body>
-                      <Card.Title className="truncate">{track.name}</Card.Title>
+                      <Card.Title className="truncate">{track.track.name}</Card.Title>
                       <Card.Text className="truncate">
                         <small>
                           {track.track.artists
