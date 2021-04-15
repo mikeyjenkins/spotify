@@ -88,7 +88,12 @@
     margin-left: auto;
     padding-left: 50px;
     padding-right: 50px;
-    padding-top: 50px;
+
+    h2{
+        margin-bottom:0px;
+        margin-top: 20px;
+        color:#343B3F;
+    }
 }
 
 .search-button{
@@ -105,6 +110,10 @@ border:none;
 .dashboard-page {
     .content-container{
         padding-bottom: 100px;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .content-container-recent-tracks{
         margin-left: 10%;
         margin-right: 10%;
     }
@@ -142,9 +151,8 @@ border:none;
 }
 
 .tracks-table{
-    margin-right: 100px;
-    margin-left: 100px;
-    margin-top: 50px;
+    margin-right: 50px;
+    margin-left: 50px;
     margin-bottom: 100px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
@@ -167,8 +175,14 @@ border:none;
 }
 
 .library-title{
-    text-align: center;
     margin-top: 30px;
+    display: inline;
+    h2{
+        margin-bottom:0px;
+        margin-left: 50px;
+        margin-top: 20px;
+        color:#343B3F;
+    }
 }
 
 .current-song-wrapper{

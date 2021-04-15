@@ -3,6 +3,8 @@ import * as api from "../utils/api";
 import Search from "./Search";
 import SearchContent from "./SearchContent";
 import { useHistory } from "react-router-dom";
+import FavoriteContent from "../components/FavoriteContent";
+import RecentlyPlayed from "../components/RecentlyPlayed";
 
 const Dashboard = () => {
   const [data, setData] = useState();
@@ -10,7 +12,7 @@ const Dashboard = () => {
   const [albums, setAlbums] = useState();
   const [artists, setArtists] = useState();
   const [playlists, setPlaylists] = useState();
-  let history = useHistory()
+  let history = useHistory();
 
   const populateData = (data) => {
     setData(data);
@@ -20,14 +22,35 @@ const Dashboard = () => {
     setTracks(data["tracks"]);
   };
 
-  const handleSearch = (searchTerm) => {
-    const API_SEARCH_URL = `https://api.spotify.com/v1/search?query=${encodeURIComponent(
-      searchTerm
-    )}&type=album,playlist,artist,track`;
+  const resetData = () => {
+    setData();
+    setAlbums();
+    setArtists();
+    setPlaylists();
+    setTracks();
+  };
 
-    api.get(API_SEARCH_URL).then((res) => {
-      populateData(res.data);
-    });
+  const renderDefault = () => {
+    return (
+      <>
+        <RecentlyPlayed />
+        <FavoriteContent />
+      </>
+    );
+  };
+
+  const handleSearch = (searchTerm) => {
+    if (searchTerm === "") {
+      resetData();
+    } else {
+      const API_SEARCH_URL = `https://api.spotify.com/v1/search?query=${encodeURIComponent(
+        searchTerm
+      )}&type=album,playlist,artist,track`;
+
+      api.get(API_SEARCH_URL).then((res) => {
+        populateData(res.data);
+      });
+    }
   };
 
   return (
@@ -42,6 +65,7 @@ const Dashboard = () => {
           history={history}
         />
       )}
+      {!data && renderDefault()}
     </div>
   );
 };

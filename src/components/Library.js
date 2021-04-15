@@ -3,7 +3,6 @@ import * as api from "../utils/api";
 import { Table, ProgressBar } from "react-bootstrap";
 import _ from "lodash";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { Link } from "react-router-dom";
 
 const Library = (props) => {
   const [tracks, setTracks] = useState();
@@ -50,7 +49,7 @@ const Library = (props) => {
   return (
     <React.Fragment>
       <div className="library-title">
-        <h4>Library</h4>
+        <h2>Library</h2>
       </div>
 
       {tracks && (

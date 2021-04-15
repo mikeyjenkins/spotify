@@ -5,7 +5,7 @@ const NavBar = () => {
         return (
           <>
           <Navbar bg="dark" variant="dark">
-            <Navbar.Brand>Mikey's Spotify Interface</Navbar.Brand>
+            <Navbar.Brand href="/">Mikey's Spotify Interface</Navbar.Brand>
             <Nav className="mr-auto">
               <Nav.Link href="/dashboard">Search</Nav.Link>
               <Nav.Link href="/library">Library</Nav.Link>

@@ -4,7 +4,7 @@ import Header from "./Header";
 
 const Home = (props) => {
   let scopes =
-    "user-library-read user-library-modify user-read-currently-playing user-modify-playback-state";
+    "user-library-read user-library-modify user-read-currently-playing user-modify-playback-state user-top-read user-read-recently-played user-read-recently-played";
   const handleLogin = () => {
     window.location = `${process.env.REACT_APP_AUTHORIZE_URL}?client_id=${
       process.env.REACT_APP_CLIENT_ID

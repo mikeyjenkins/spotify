@@ -13,16 +13,11 @@ const Search = (props) => {
 
   const handleSearch = (event) => {
     event.preventDefault();
-    if (searchTerm.trim() !== "") {
-      setErrorMsg("");
       props.handleSearch(searchTerm);
-    } else {
-      setErrorMsg("Please enter a search term.");
-    }
   };
   return (
     <div className="search-bar">
-      <h3>Spotify Search Engine</h3>
+      <h2>Search</h2>
       <Form onSubmit={handleSearch}>
         {errorMsg && <p className="errorMsg">{errorMsg}</p>}
         <InputGroup className="mb-3">
