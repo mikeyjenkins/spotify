@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import * as api from "../utils/api";
+import * as api from "../../utils/api";
 import { Table, ProgressBar } from "react-bootstrap";
 import _ from "lodash";
 import InfiniteScroll from "react-infinite-scroll-component";

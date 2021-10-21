@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Home from '../components/Home';
+import Home from '../components/Screens/Home';
 import RedirectPage from '../components/RedirectPage';
-import Dashboard from '../components/Dashboard';
+import Dashboard from '../components/Screens/Dashboard';
 import NotFoundPage from '../components/NotFoundPage';
-import Library from '../components/Library'
+import Library from '../components/Screens/Library'
 import NavBar from '../components/NavBar'
 import Player from '../components/Player'
 

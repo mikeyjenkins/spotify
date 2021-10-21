@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import * as api from "../utils/api";
-import Search from "./Search";
-import SearchContent from "./SearchContent";
+import * as api from "../../utils/api";
+import Search from "../Search";
+import SearchContent from "../SearchContent";
 import { useHistory } from "react-router-dom";
-import FavoriteContent from "../components/FavoriteContent";
-import RecentlyPlayed from "../components/RecentlyPlayed";
+import FavoriteContent from "../FavoriteContent";
+import RecentlyPlayed from "../RecentlyPlayed";
 
 const Dashboard = () => {
   const [data, setData] = useState();
